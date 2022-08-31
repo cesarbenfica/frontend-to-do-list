@@ -1,23 +1,24 @@
-let idTarefa = 0
-
-const inputTarefa = document.getElementById("tarefa-nova")
-
+let idTarefa = 0;
+const inputTarefa = document.getElementById("tarefa-nova");
 function adicionarTarefa() {
-    const item = document.createElement("li")
+    const item = document.createElement("li");
     idTarefa++;
     item.id = idTarefa;
     item.innerHTML = `<li>
-            <span>${inputTarefa.value}</span>
-            <button class="excluir">x</button>
-        </li>`;
+    <span onclick="concluir(${idTarefa})">${inputTarefa.value}</span>
+    <div class="botoes">
+        <button class="concluido" onclick="concluir(${idTarefa})">ok</button>
+        <button class="excluir" onclick="excluir(${idTarefa})">x</button>
+    </div>
+</li>`;
 
     const lista = document.querySelector("#lista");
     lista.appendChild(item);
     inputTarefa.value = "";
 }
 
-const botaoAdiconar = document.querySelector("#btn-adicionar")
-botaoAdiconar.addEventListener("click", adicionarTarefa)
+const botaoAdiconar = document.querySelector("#btn-adicionar");
+botaoAdiconar.addEventListener("click", adicionarTarefa);
 
 function limparLista() {
     const lista = document.querySelector("#lista");
@@ -26,10 +27,12 @@ function limparLista() {
 const botaoLimpar = document.querySelector(".bt-azul")
 botaoLimpar.addEventListener("click", limparLista)
 
-// function concluir(itemId) {
-//     const tarefaSelecionada = document.getElementById(itemId);
-//     tarefaSelecionada.className = "concluida";
-// }
+function concluir(idTarefa) {
+    const tarefaSelecionada = document.getElementById(idTarefa);
+    tarefaSelecionada.className = "concluida";
+}
 
-// item.innerHTML = `<span onclick="concluir(${inputTarefa.value}</span>)
-// <button class="feito" onclick ="concluido(event)">x</button>`;
+function excluir(idTarefa) {
+    const tarefaSelecionada = document.getElementById(idTarefa);
+    tarefaSelecionada.remove();
+}

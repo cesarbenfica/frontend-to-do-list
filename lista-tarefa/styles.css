@@ -10,6 +10,7 @@ body{
 }
 
 .logo {
+    background-color: #fff;
     width: 180px;
     margin: 20px
 }
@@ -61,7 +62,7 @@ h1, p{
   
 #lista > li{
     background-color: #dbdbdb;
-    width: 100%;
+    width: 90%;
     padding: 8px;
     margin-bottom: 20px;
     border-radius: 4px;
@@ -95,8 +96,21 @@ h1, p{
     margin-top: 30px;
 }
 
-/* .concluida {
+.concluido {
     background-color: #bdbcbc;
+    width: 16px;
+    height: 16px;
+    line-height: 0;
+    border-radius: 2px;
     border:none;
     cursor: pointer;
-} */
+}
+
+.botoes {
+    justify-content: end;
+}
+
+.concluida span {
+    text-decoration: line-through;
+    color: #26bd00;
+}
