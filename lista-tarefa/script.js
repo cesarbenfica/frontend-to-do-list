@@ -14,18 +14,23 @@ function adicionarTarefa() {
 </li>`;
 
     if (inputTarefa.value.length != 0) {
-
         const lista = document.querySelector("#lista");
         lista.appendChild(item);
         inputTarefa.value = ""
-
     } else {
         alert('Nada foi adicionado a sua lista de tarefas, digite algo para que seja adicionado!')
     }
 }
 
-const botaoAdiconar = document.querySelector("#btn-adicionar");
-botaoAdiconar.addEventListener("click", adicionarTarefa);
+document.addEventListener('keypress', function(e) {
+if (e.key === "Enter") {
+    const botaoAdiconar = document.querySelector("#btn-adicionar");
+    botaoAdiconar.click();
+} else {
+    const botaoAdiconar = document.querySelector("#btn-adicionar");
+    botaoAdiconar.addEventListener("click", adicionarTarefa);
+}
+});
 
 function limparLista() {
     const lista = document.querySelector("#lista");
