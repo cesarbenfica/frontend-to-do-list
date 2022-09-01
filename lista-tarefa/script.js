@@ -1,5 +1,6 @@
 let idTarefa = 0;
 const inputTarefa = document.getElementById("tarefa-nova");
+
 function adicionarTarefa() {
     const item = document.createElement("li");
     idTarefa++;
@@ -12,9 +13,15 @@ function adicionarTarefa() {
     </div>
 </li>`;
 
-    const lista = document.querySelector("#lista");
-    lista.appendChild(item);
-    inputTarefa.value = "";
+    if (inputTarefa.value.length != 0) {
+
+        const lista = document.querySelector("#lista");
+        lista.appendChild(item);
+        inputTarefa.value = ""
+
+    } else {
+        alert('Nada foi adicionado a sua lista de tarefas, digite algo para que seja adicionado!')
+    }
 }
 
 const botaoAdiconar = document.querySelector("#btn-adicionar");
@@ -24,8 +31,8 @@ function limparLista() {
     const lista = document.querySelector("#lista");
     lista.innerHTML = "";
 }
-const botaoLimpar = document.querySelector(".bt-azul")
-botaoLimpar.addEventListener("click", limparLista)
+const botaoLimpar = document.querySelector(".bt-azul");
+botaoLimpar.addEventListener("click", limparLista);
 
 function concluir(idTarefa) {
     const tarefaSelecionada = document.getElementById(idTarefa);
